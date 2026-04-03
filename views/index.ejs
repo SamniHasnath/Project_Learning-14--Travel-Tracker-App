@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Travel Tracker</title>
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
+</head>
+
+<body>
+  <h1>Travel Tracker</h1>
+  <p style="margin-bottom: 20px; color: #94a3b8;">You have explored <b><%= total %></b> countries</p>
+
+  <form action="/add" method="POST">
+    <input type="text" name="country" placeholder="Where to next?" required autofocus>
+    <button type="submit">Add Country</button>
+  </form>
+
+  <% if (locals.error) { %>
+    <p class="error-msg"><%= error %></p>
+  <% } %>
+
+  <div id="map"></div>
+
+  <script>
+    const visitedCountries = <%- JSON.stringify(countries) %> || [];
+    
+    const map = new jsVectorMap({
+      selector: "#map",
+      map: "world",
+      regionStyle: {
+        initial: { 
+          fill: "#334155", // Slate gray for unvisited
+          fillOpacity: 1,
+          stroke: "#0f172a",
+          strokeWidth: 0.5
+        },
+        selected: { 
+          fill: "#38bdf8" // Sky blue for visited
+        },
+        hover: {
+          fillOpacity: 0.8,
+          fill: "#818cf8"
+        }
+      },
+      selectedRegions: visitedCountries
+    });
+  </script>
+</body>
+</html>

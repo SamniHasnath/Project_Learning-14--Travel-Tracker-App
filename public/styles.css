@@ -1,0 +1,140 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: #0f172a; /* Deep Navy Background */
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Form Styling */
+form {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+  border: 1px solid #334155;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+  border-color: #38bdf8;
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #38bdf8;
+  color: #0f172a;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+button:hover {
+  background-color: #7dd3fc;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Error Message */
+.error-msg {
+  color: #fb7185;
+  background: rgba(251, 113, 133, 0.1);
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(251, 113, 133, 0.2);
+}
+
+/* Map Container */
+#map {
+  width: 100%;
+  max-width: 1000px;
+  height: 550px;
+  background: #1e293b;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+  border: 1px solid #334155;
+}
+/* Container for the tags */
+.visited-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 800px;
+  margin: 20px 0 30px 0;
+}
+
+/* Individual country tag */
+.country-tag {
+  background: rgba(56, 189, 248, 0.1); /* Subtle sky blue background */
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.country-tag:hover {
+  background: #38bdf8;
+  color: #0f172a;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+/* Smooth entry animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  form {
+    flex-direction: column;
+  }
+}
